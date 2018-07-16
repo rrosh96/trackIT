@@ -1,7 +1,7 @@
 
-var contextMenuItem = {
+const contextMenuItem = {
     "id": "trackIT",
-    "title": "Add task to trackIT",
+    "title": "Add selection to trackIT",
     "contexts":["selection"]
 };
 
@@ -12,11 +12,8 @@ var contextMenuItem = {
 // 
 chrome.contextMenus.create(contextMenuItem);
 
-
-
 //
 // post the selected Text to the listening server.
-//
 //
 const postData = (url = `http://localhost:6007/WebServices/GetNotes`, data = {}) => {
   // Default options are marked with *
@@ -49,7 +46,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData){
         	"Notes" : clickData.selectionText
         }
         postData("http://localhost:6007/WebServices/GetNotes", data);
-        
+
     }else {
     	console.log("do nothing");
     }
